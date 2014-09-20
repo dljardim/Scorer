@@ -250,22 +250,7 @@ static NSString *cellIdentifier = @"customCell";
 
 #pragma mark -
 
-#pragma mark - Logging
 
--(void)logArray:(NSMutableArray *)array{
-    NSLog(@"******************");
-    NSLog(array);
-    NSLog(@"******************");
-}
-
--(void)logIndexPath:(NSIndexPath *)path{
-    NSLog(@"******************");
-    NSLog(path);
-    NSLog(@"******************");
-
-}
-
-#pragma mark -
 
 
 #pragma mark - Popup Functions
