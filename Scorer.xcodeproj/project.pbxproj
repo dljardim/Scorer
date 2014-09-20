@@ -19,6 +19,8 @@
 		38ED356B19CD498000D6FEBF /* TurnAmountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38ED356919CD498000D6FEBF /* TurnAmountViewController.m */; };
 		38ED356C19CD498000D6FEBF /* TurnAmountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38ED356A19CD498000D6FEBF /* TurnAmountViewController.xib */; };
 		38ED357419CD5E6800D6FEBF /* UIViewController+MaryPopin.m in Sources */ = {isa = PBXBuildFile; fileRef = 38ED357319CD5E6800D6FEBF /* UIViewController+MaryPopin.m */; };
+		38ED357819CD9AFB00D6FEBF /* GameScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38ED357619CD9AFB00D6FEBF /* GameScoreViewController.m */; };
+		38ED357919CD9AFB00D6FEBF /* GameScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38ED357719CD9AFB00D6FEBF /* GameScoreViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		38ED356A19CD498000D6FEBF /* TurnAmountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TurnAmountViewController.xib; sourceTree = "<group>"; };
 		38ED357219CD5E6800D6FEBF /* UIViewController+MaryPopin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MaryPopin.h"; sourceTree = "<group>"; };
 		38ED357319CD5E6800D6FEBF /* UIViewController+MaryPopin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MaryPopin.m"; sourceTree = "<group>"; };
+		38ED357519CD9AFB00D6FEBF /* GameScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScoreViewController.h; sourceTree = "<group>"; };
+		38ED357619CD9AFB00D6FEBF /* GameScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScoreViewController.m; sourceTree = "<group>"; };
+		38ED357719CD9AFB00D6FEBF /* GameScoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameScoreViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +114,9 @@
 				38ED356819CD498000D6FEBF /* TurnAmountViewController.h */,
 				38ED356919CD498000D6FEBF /* TurnAmountViewController.m */,
 				38ED356A19CD498000D6FEBF /* TurnAmountViewController.xib */,
+				38ED357519CD9AFB00D6FEBF /* GameScoreViewController.h */,
+				38ED357619CD9AFB00D6FEBF /* GameScoreViewController.m */,
+				38ED357719CD9AFB00D6FEBF /* GameScoreViewController.xib */,
 			);
 			path = Scorer;
 			sourceTree = "<group>";
@@ -233,6 +241,7 @@
 				3803AEB419CD068A0088623B /* PlayerTurnTableViewCell.xib in Resources */,
 				3803AE9119CCEF730088623B /* LaunchScreen.xib in Resources */,
 				3803AE8E19CCEF730088623B /* Images.xcassets in Resources */,
+				38ED357919CD9AFB00D6FEBF /* GameScoreViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +265,7 @@
 				3803AE8319CCEF730088623B /* main.m in Sources */,
 				38ED357419CD5E6800D6FEBF /* UIViewController+MaryPopin.m in Sources */,
 				3803AEA919CCFEDD0088623B /* PlayerScoreCard.m in Sources */,
+				38ED357819CD9AFB00D6FEBF /* GameScoreViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
