@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "PlayerTurnTableViewCell.h"
+#import "TurnAmountViewController.h"
 
-@interface PlayerScoreCard : UIViewController
+@interface PlayerScoreCard : UIViewController <TurnAmountViewControllerDelegate>
 
 @end

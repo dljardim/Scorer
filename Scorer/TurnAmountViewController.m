@@ -17,13 +17,16 @@
 
 
 
+
+
 @end
 
 @implementation TurnAmountViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //[self.txtAmount becomeFirstResponder];
+    self.lblLabel.text = [self.inAmount stringValue];
+    [self.txtAmount becomeFirstResponder];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -33,6 +36,11 @@
 }
 - (IBAction)dismiss:(id)sender {
     
+    
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+    self.inAmount = [formatter numberFromString:self.txtAmount.text];
+    
+    [self.delegate updateAmount:self.inAmount];
     
     [self.presentingPopinViewController dismissCurrentPopinControllerAnimated:YES completion:^{
         NSLog(@"Popin dismissed !");

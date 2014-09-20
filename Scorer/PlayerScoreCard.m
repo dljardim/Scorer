@@ -20,6 +20,8 @@ static NSString *cellIdentifier = @"customCell";
 @property (nonatomic, weak) IBOutlet UILabel *lblName;
 @property (nonatomic, weak) IBOutlet UILabel *lblScore;
 
+@property (nonatomic) int selectedIndexPathRow;
+
 
 @property (nonatomic, strong) NSMutableArray *arrayDatasource;
 
@@ -32,31 +34,11 @@ static NSString *cellIdentifier = @"customCell";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"PlayerTurnTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
     
-    /*
-    //self.edgesForExtendedLayout = UIRectEdgeAll;
-
-    if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-     */
-    
-    //self.navigationController.navigationBar.translucent = NO;
-    
-    // Do any additional setup after loading the view from its nib.
     [self addTableData];
     [self updateTotalScore];
     [self updateName];
     
-    /*
-    id topGuide = myViewController.topLayoutGuide;
-    NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings (button, topGuide);
     
-    [myViewController.view addConstraints:
-     [NSLayoutConstraint constraintsWithVisualFormat: @"V:[topGuide]-20-[button]"
-                                             options: 0
-                                             metrics: nil
-                                               views: viewsDictionary]
-     ];
-     */
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,11 +47,17 @@ static NSString *cellIdentifier = @"customCell";
 }
 
 -(void)addTableData{
-    [self.arrayDatasource addObject:[NSNumber numberWithInt:1]];
-    [self.arrayDatasource addObject:[NSNumber numberWithInt:1]];
-    [self.arrayDatasource addObject:[NSNumber numberWithInt:1]];
-    [self.arrayDatasource addObject:[NSNumber numberWithInt:1]];
-    [self.arrayDatasource addObject:[NSNumber numberWithInt:1]];
+    
+    //[self.arrayDatasource addObject:[NSNumber numberWithInt:1]];
+    //[self.arrayDatasource addObject:[NSNumber numberWithInt:1]];
+    //[self.arrayDatasource addObject:[NSNumber numberWithInt:1]];
+    //[self.arrayDatasource addObject:[NSNumber numberWithInt:1]];
+    //[self.arrayDatasource addObject:[NSNumber numberWithInt:1]];
+    
+    
+    //what happens when no data rows are added
+    //if no data rows are added - add + row
+        //
 }
 
 -(void)updateName{
@@ -87,12 +75,34 @@ static NSString *cellIdentifier = @"customCell";
     self.lblScore.text = [NSString stringWithFormat:@"%d", sum];
 }
 
+//callback from turnamountview
+-(void)updateAmount:(NSNumber *)amount{
+    
+    
+    //update datasource and tableview
+    
+    //NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+    //NSNumber *myNumber = [formatter numberFromString:amount];
+    
+    //todo: change from 0 -
+    self.arrayDatasource[self.selectedIndexPathRow] = amount;
+    
+    [self reload];
+    
+}
+
+-(void)reload{
+    [self.tableView reloadData];
+    [self updateTotalScore];
+    
+}
+
 #pragma mark - Lazy Load
 
 - (NSMutableArray *)arrayDatasource
 {
     if (!_arrayDatasource) {
-        NSLog(@"arrayDatasource is nil");
+        
         _arrayDatasource = [NSMutableArray new];
     }
     return _arrayDatasource;
@@ -122,41 +132,137 @@ static NSString *cellIdentifier = @"customCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*
-    static NSString *CellIdentifier = @"PlayerTurnTableViewCell";
-    PlayerTurnTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    //cell is nil
-    if (cell == nil) {
-        //cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        NSArray * topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"PlayerTurnTableViewCell" owner:self options:nil];
-        cell = (PlayerTurnTableViewCell *)topLevelObjects[0];
-    }
-    */
-    
-    
     PlayerTurnTableViewCell *cell = (PlayerTurnTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
   
     [cell.lblName setText:[NSString stringWithFormat:@"%@",[self.arrayDatasource objectAtIndex:indexPath.row]]];
     
-
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Assuming view is at zero index of XIB file.
-    // this view will contain all lable and other controls
+    self.selectedIndexPathRow = (int)indexPath.row;
+    [self presentPopup:indexPath];
+}
+
+#pragma mark - 
+
+#pragma mark Table view header / footer
+
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    //todo: fix - decide if the header is needed - maybe display the name in the header ???
     
-    /*
-    UIView*customView =(UIView*)[[NSBundle mainBundle] loadNibNamed:@"NameOfCustomViewXIBFile" owner:nil options:nil] objectAtIndex:0];
-    customView.transform =CGAffineTransformMakeScale(0.0f,0.0f);
-    [self.view addSubView:customView];
-    [UIView animateWithDuration:0.5 animations:^{customView.transform =CGAffineTransformMakeScale(1.0f,1.0f);}];
-     */
-    [self presentPopup];
+    if(/* DISABLES CODE */ (YES)){
+        return nil;
+    }
     
+    // 1. The view for the header
+    UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 22)];
+    
+    // 2. Set a custom background color and a border
+    headerView.backgroundColor = [UIColor colorWithWhite:0.5f alpha:1.0f];
+    headerView.layer.borderColor = [UIColor colorWithWhite:0.5 alpha:1.0].CGColor;
+    headerView.layer.borderWidth = 1.0;
+    
+    // 3. Add a label
+    UILabel* headerLabel = [[UILabel alloc] init];
+    headerLabel.frame = CGRectMake(5, 2, tableView.frame.size.width - 5, 18);
+    headerLabel.backgroundColor = [UIColor clearColor];
+    headerLabel.textColor = [UIColor whiteColor];
+    headerLabel.font = [UIFont boldSystemFontOfSize:16.0];
+    headerLabel.text = @"HEADER";
+    headerLabel.textAlignment = NSTextAlignmentCenter;
+    
+    // 4. Add the label to the header view
+    [headerView addSubview:headerLabel];
+    
+    // 5. Finally return
+    return headerView;
+}
+
+-(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    //todo - add conditional to test for the cases in the which the + (add score) will appear
+    
+    if(YES){
+        // 1. The view
+        UIView* footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 60)];
+        
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected:)];
+        singleTap.numberOfTapsRequired = 1;
+        [footerView addGestureRecognizer:singleTap];
+        
+        // 2. Set a custom background color and a border
+        footerView.backgroundColor = [UIColor colorWithWhite:0.5f alpha:1.0f];
+        footerView.layer.borderColor = [UIColor colorWithWhite:0.5 alpha:1.0].CGColor;
+        footerView.layer.borderWidth = 1.0;
+        
+        // 3. Add a label
+        UILabel* footerLabel = [[UILabel alloc] init];
+        footerLabel.frame = CGRectMake(5, 2, tableView.frame.size.width - 5, 60);
+        footerLabel.backgroundColor = [UIColor clearColor];
+        footerLabel.textColor = [UIColor whiteColor];
+        footerLabel.font = [UIFont boldSystemFontOfSize:16.0];
+        footerLabel.text = @"+";
+        footerLabel.textAlignment = NSTextAlignmentCenter;
+        
+        // 4. Add the label to the view
+        [footerView addSubview:footerLabel];
+        
+        // 5. Finally return
+        return footerView;
+
+    }
+    
+    return nil;
+    
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 60;
+}
+
+
+#pragma mark -
+
+#pragma mark - methods
+
+- (void)tapDetected:(UIGestureRecognizer *)sender {
+    
+    
+    
+    //[self logIndexPath:path];
+    //[self logArray:self.arrayDatasource];
+    //NSIndexPath *path = [NSIndexPath indexPathWithIndex:self.arrayDatasource.count];
+    
+    //add new item to our array - then use that indexpath
+    [self.arrayDatasource addObject:[NSNumber numberWithInt:0]];
+    NSIndexPath *path = [NSIndexPath indexPathForRow:(self.arrayDatasource.count-1) inSection:0];
+    self.selectedIndexPathRow = (int)path.row;
+    
+    [self reload];
+    
+    [self presentPopup:path];
+}
+
+#pragma mark -
+
+#pragma mark - Logging
+
+-(void)logArray:(NSMutableArray *)array{
+    NSLog(@"******************");
+    NSLog(array);
+    NSLog(@"******************");
+}
+
+-(void)logIndexPath:(NSIndexPath *)path{
+    NSLog(@"******************");
+    NSLog(path);
+    NSLog(@"******************");
+
 }
 
 #pragma mark -
@@ -164,12 +270,18 @@ static NSString *cellIdentifier = @"customCell";
 
 #pragma mark - Popup Functions
 
-- (void)presentPopup{
+- (void)presentPopup:(NSIndexPath *)indexPath
+{
     
     
     //Create the popin view controller
     //UIViewController *popin = [[UIViewController alloc] initWithNibName:@"NibName" bundle:@"Bundle"];
     TurnAmountViewController *popin = [[TurnAmountViewController alloc]init];
+    
+    NSNumber *oldValue = self.arrayDatasource[indexPath.row];
+    popin.delegate = self;
+    popin.inAmount = oldValue;
+    
     //Customize transition if needed
     [popin setPopinTransitionStyle:BKTPopinTransitionStyleSlide];
     
