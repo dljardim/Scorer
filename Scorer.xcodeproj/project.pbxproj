@@ -16,6 +16,9 @@
 		3803AEAA19CCFEDD0088623B /* PlayerScoreCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3803AEA819CCFEDD0088623B /* PlayerScoreCard.xib */; };
 		3803AEB319CD068A0088623B /* PlayerTurnTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3803AEB119CD068A0088623B /* PlayerTurnTableViewCell.m */; };
 		3803AEB419CD068A0088623B /* PlayerTurnTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3803AEB219CD068A0088623B /* PlayerTurnTableViewCell.xib */; };
+		38ED356B19CD498000D6FEBF /* TurnAmountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38ED356919CD498000D6FEBF /* TurnAmountViewController.m */; };
+		38ED356C19CD498000D6FEBF /* TurnAmountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38ED356A19CD498000D6FEBF /* TurnAmountViewController.xib */; };
+		38ED357419CD5E6800D6FEBF /* UIViewController+MaryPopin.m in Sources */ = {isa = PBXBuildFile; fileRef = 38ED357319CD5E6800D6FEBF /* UIViewController+MaryPopin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,11 @@
 		3803AEB019CD068A0088623B /* PlayerTurnTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTurnTableViewCell.h; sourceTree = "<group>"; };
 		3803AEB119CD068A0088623B /* PlayerTurnTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTurnTableViewCell.m; sourceTree = "<group>"; };
 		3803AEB219CD068A0088623B /* PlayerTurnTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerTurnTableViewCell.xib; sourceTree = "<group>"; };
+		38ED356819CD498000D6FEBF /* TurnAmountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TurnAmountViewController.h; sourceTree = "<group>"; };
+		38ED356919CD498000D6FEBF /* TurnAmountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TurnAmountViewController.m; sourceTree = "<group>"; };
+		38ED356A19CD498000D6FEBF /* TurnAmountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TurnAmountViewController.xib; sourceTree = "<group>"; };
+		38ED357219CD5E6800D6FEBF /* UIViewController+MaryPopin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MaryPopin.h"; sourceTree = "<group>"; };
+		38ED357319CD5E6800D6FEBF /* UIViewController+MaryPopin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MaryPopin.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,7 @@
 		3803AE7F19CCEF730088623B /* Scorer */ = {
 			isa = PBXGroup;
 			children = (
+				38ED357119CD5E6800D6FEBF /* MaryPopin */,
 				3803AE8419CCEF730088623B /* AppDelegate.h */,
 				3803AE8519CCEF730088623B /* AppDelegate.m */,
 				3803AE8D19CCEF730088623B /* Images.xcassets */,
@@ -97,6 +106,9 @@
 				3803AEB019CD068A0088623B /* PlayerTurnTableViewCell.h */,
 				3803AEB119CD068A0088623B /* PlayerTurnTableViewCell.m */,
 				3803AEB219CD068A0088623B /* PlayerTurnTableViewCell.xib */,
+				38ED356819CD498000D6FEBF /* TurnAmountViewController.h */,
+				38ED356919CD498000D6FEBF /* TurnAmountViewController.m */,
+				38ED356A19CD498000D6FEBF /* TurnAmountViewController.xib */,
 			);
 			path = Scorer;
 			sourceTree = "<group>";
@@ -125,6 +137,15 @@
 				3803AE9B19CCEF730088623B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		38ED357119CD5E6800D6FEBF /* MaryPopin */ = {
+			isa = PBXGroup;
+			children = (
+				38ED357219CD5E6800D6FEBF /* UIViewController+MaryPopin.h */,
+				38ED357319CD5E6800D6FEBF /* UIViewController+MaryPopin.m */,
+			);
+			path = MaryPopin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3803AEAA19CCFEDD0088623B /* PlayerScoreCard.xib in Resources */,
+				38ED356C19CD498000D6FEBF /* TurnAmountViewController.xib in Resources */,
 				3803AEB419CD068A0088623B /* PlayerTurnTableViewCell.xib in Resources */,
 				3803AE9119CCEF730088623B /* LaunchScreen.xib in Resources */,
 				3803AE8E19CCEF730088623B /* Images.xcassets in Resources */,
@@ -229,8 +251,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3803AE8619CCEF730088623B /* AppDelegate.m in Sources */,
+				38ED356B19CD498000D6FEBF /* TurnAmountViewController.m in Sources */,
 				3803AEB319CD068A0088623B /* PlayerTurnTableViewCell.m in Sources */,
 				3803AE8319CCEF730088623B /* main.m in Sources */,
+				38ED357419CD5E6800D6FEBF /* UIViewController+MaryPopin.m in Sources */,
 				3803AEA919CCFEDD0088623B /* PlayerScoreCard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +438,7 @@
 				3803AEA219CCEF730088623B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3803AEA319CCEF730088623B /* Build configuration list for PBXNativeTarget "ScorerTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +447,7 @@
 				3803AEA519CCEF730088623B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
