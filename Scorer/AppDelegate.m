@@ -18,7 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    //testing source control
+    //testing source control d
     [self setWindow:[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]]];
     PlayerScoreCard *vc = [[PlayerScoreCard alloc]init];
     
