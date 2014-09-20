@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LaunchViewController.h
 //  Scorer
 //
 //  Created by Damian Jardim on 9/19/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface PlayerScoreCard : UIViewController
 
 @end
-

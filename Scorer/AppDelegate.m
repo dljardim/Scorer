@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "PlayerScoreCard.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [self setWindow:[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]]];
+    PlayerScoreCard *vc = [[PlayerScoreCard alloc]init];
+    
+    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:vc];
+    
+    
+    
+    [self.window setRootViewController:navController];
+    [self.window makeKeyAndVisible];
+
     return YES;
 }
 

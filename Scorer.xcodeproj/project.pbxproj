@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		3803AE8319CCEF730088623B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3803AE8219CCEF730088623B /* main.m */; };
 		3803AE8619CCEF730088623B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3803AE8519CCEF730088623B /* AppDelegate.m */; };
-		3803AE8919CCEF730088623B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3803AE8819CCEF730088623B /* ViewController.m */; };
-		3803AE8C19CCEF730088623B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3803AE8A19CCEF730088623B /* Main.storyboard */; };
 		3803AE8E19CCEF730088623B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3803AE8D19CCEF730088623B /* Images.xcassets */; };
 		3803AE9119CCEF730088623B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3803AE8F19CCEF730088623B /* LaunchScreen.xib */; };
 		3803AE9D19CCEF730088623B /* ScorerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3803AE9C19CCEF730088623B /* ScorerTests.m */; };
+		3803AEA919CCFEDD0088623B /* PlayerScoreCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3803AEA719CCFEDD0088623B /* PlayerScoreCard.m */; };
+		3803AEAA19CCFEDD0088623B /* PlayerScoreCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3803AEA819CCFEDD0088623B /* PlayerScoreCard.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +32,14 @@
 		3803AE8219CCEF730088623B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3803AE8419CCEF730088623B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3803AE8519CCEF730088623B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3803AE8719CCEF730088623B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3803AE8819CCEF730088623B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3803AE8B19CCEF730088623B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3803AE8D19CCEF730088623B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3803AE9019CCEF730088623B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3803AE9619CCEF730088623B /* ScorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3803AE9B19CCEF730088623B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3803AE9C19CCEF730088623B /* ScorerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScorerTests.m; sourceTree = "<group>"; };
+		3803AEA619CCFEDD0088623B /* PlayerScoreCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerScoreCard.h; sourceTree = "<group>"; };
+		3803AEA719CCFEDD0088623B /* PlayerScoreCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerScoreCard.m; sourceTree = "<group>"; };
+		3803AEA819CCFEDD0088623B /* PlayerScoreCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerScoreCard.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +83,12 @@
 			children = (
 				3803AE8419CCEF730088623B /* AppDelegate.h */,
 				3803AE8519CCEF730088623B /* AppDelegate.m */,
-				3803AE8719CCEF730088623B /* ViewController.h */,
-				3803AE8819CCEF730088623B /* ViewController.m */,
-				3803AE8A19CCEF730088623B /* Main.storyboard */,
 				3803AE8D19CCEF730088623B /* Images.xcassets */,
 				3803AE8F19CCEF730088623B /* LaunchScreen.xib */,
 				3803AE8019CCEF730088623B /* Supporting Files */,
+				3803AEA619CCFEDD0088623B /* PlayerScoreCard.h */,
+				3803AEA719CCFEDD0088623B /* PlayerScoreCard.m */,
+				3803AEA819CCFEDD0088623B /* PlayerScoreCard.xib */,
 			);
 			path = Scorer;
 			sourceTree = "<group>";
@@ -199,7 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3803AE8C19CCEF730088623B /* Main.storyboard in Resources */,
+				3803AEAA19CCFEDD0088623B /* PlayerScoreCard.xib in Resources */,
 				3803AE9119CCEF730088623B /* LaunchScreen.xib in Resources */,
 				3803AE8E19CCEF730088623B /* Images.xcassets in Resources */,
 			);
@@ -219,9 +219,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3803AE8919CCEF730088623B /* ViewController.m in Sources */,
 				3803AE8619CCEF730088623B /* AppDelegate.m in Sources */,
 				3803AE8319CCEF730088623B /* main.m in Sources */,
+				3803AEA919CCFEDD0088623B /* PlayerScoreCard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,14 +244,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3803AE8A19CCEF730088623B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3803AE8B19CCEF730088623B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3803AE8F19CCEF730088623B /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
