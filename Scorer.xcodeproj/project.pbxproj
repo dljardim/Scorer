@@ -14,6 +14,8 @@
 		3803AE9D19CCEF730088623B /* ScorerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3803AE9C19CCEF730088623B /* ScorerTests.m */; };
 		3803AEA919CCFEDD0088623B /* PlayerScoreCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3803AEA719CCFEDD0088623B /* PlayerScoreCard.m */; };
 		3803AEAA19CCFEDD0088623B /* PlayerScoreCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3803AEA819CCFEDD0088623B /* PlayerScoreCard.xib */; };
+		3803AEB319CD068A0088623B /* PlayerTurnTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3803AEB119CD068A0088623B /* PlayerTurnTableViewCell.m */; };
+		3803AEB419CD068A0088623B /* PlayerTurnTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3803AEB219CD068A0088623B /* PlayerTurnTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,9 @@
 		3803AEA619CCFEDD0088623B /* PlayerScoreCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerScoreCard.h; sourceTree = "<group>"; };
 		3803AEA719CCFEDD0088623B /* PlayerScoreCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerScoreCard.m; sourceTree = "<group>"; };
 		3803AEA819CCFEDD0088623B /* PlayerScoreCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerScoreCard.xib; sourceTree = "<group>"; };
+		3803AEB019CD068A0088623B /* PlayerTurnTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTurnTableViewCell.h; sourceTree = "<group>"; };
+		3803AEB119CD068A0088623B /* PlayerTurnTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTurnTableViewCell.m; sourceTree = "<group>"; };
+		3803AEB219CD068A0088623B /* PlayerTurnTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerTurnTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +94,9 @@
 				3803AEA619CCFEDD0088623B /* PlayerScoreCard.h */,
 				3803AEA719CCFEDD0088623B /* PlayerScoreCard.m */,
 				3803AEA819CCFEDD0088623B /* PlayerScoreCard.xib */,
+				3803AEB019CD068A0088623B /* PlayerTurnTableViewCell.h */,
+				3803AEB119CD068A0088623B /* PlayerTurnTableViewCell.m */,
+				3803AEB219CD068A0088623B /* PlayerTurnTableViewCell.xib */,
 			);
 			path = Scorer;
 			sourceTree = "<group>";
@@ -200,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3803AEAA19CCFEDD0088623B /* PlayerScoreCard.xib in Resources */,
+				3803AEB419CD068A0088623B /* PlayerTurnTableViewCell.xib in Resources */,
 				3803AE9119CCEF730088623B /* LaunchScreen.xib in Resources */,
 				3803AE8E19CCEF730088623B /* Images.xcassets in Resources */,
 			);
@@ -220,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3803AE8619CCEF730088623B /* AppDelegate.m in Sources */,
+				3803AEB319CD068A0088623B /* PlayerTurnTableViewCell.m in Sources */,
 				3803AE8319CCEF730088623B /* main.m in Sources */,
 				3803AEA919CCFEDD0088623B /* PlayerScoreCard.m in Sources */,
 			);
