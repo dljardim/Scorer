@@ -77,18 +77,10 @@ static NSString *cellIdentifier = @"customCell";
 
 //callback from turnamountview
 -(void)updateAmount:(NSNumber *)amount{
-    
-    
-    //update datasource and tableview
-    
-    //NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-    //NSNumber *myNumber = [formatter numberFromString:amount];
-    
     //todo: change from 0 -
     self.arrayDatasource[self.selectedIndexPathRow] = amount;
     
     [self reload];
-    
 }
 
 -(void)reload{

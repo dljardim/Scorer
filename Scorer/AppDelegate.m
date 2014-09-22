@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "PlayerScoreCard.h"
+#import "GameScoreViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,7 +21,10 @@
     // Override point for customization after application launch.
     //testing source control dd
     [self setWindow:[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]]];
-    PlayerScoreCard *vc = [[PlayerScoreCard alloc]init];
+    
+    //todo: clean up imports
+    //PlayerScoreCard *vc = [[PlayerScoreCard alloc]init];
+    GameScoreViewController *vc = [[GameScoreViewController alloc]init];
     
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:vc];
     
