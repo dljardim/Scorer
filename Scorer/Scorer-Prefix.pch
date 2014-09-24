@@ -1,0 +1,20 @@
+//
+//  Scorer-Prefix.pch
+//  Scorer
+//
+//  Created by Damian Jardim on 9/22/14.
+//  Copyright (c) 2014 Damian Jardim. All rights reserved.
+//
+
+#ifndef Scorer_Scorer_Prefix_pch
+#define Scorer_Scorer_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif
+
+//1. Import MagicalRecord Sources
+#define MR_SHORTHAND
+#define MR_ENABLE_ACTIVE_RECORD_LOGGING 0
+#import "CoreData+MagicalRecord.h"

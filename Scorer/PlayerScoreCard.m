@@ -32,6 +32,13 @@ static NSString *cellIdentifier = @"customCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //self.navigationController.navigationBar.translucent = NO;
+    self.title = @"PlayerScoreCard";
+    
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]){
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"PlayerTurnTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
     
     [self addTableData];
@@ -77,8 +84,13 @@ static NSString *cellIdentifier = @"customCell";
 
 //callback from turnamountview
 -(void)updateAmount:(NSNumber *)amount{
-    //todo: change from 0 -
-    self.arrayDatasource[self.selectedIndexPathRow] = amount;
+   
+    NSLog(@"updateAmount: %@", amount);
+    
+    //dont update our datasource if 'amount' isn't a number
+    if(amount != nil){
+        self.arrayDatasource[self.selectedIndexPathRow] = amount;
+    }
     
     [self reload];
 }
@@ -106,7 +118,7 @@ static NSString *cellIdentifier = @"customCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 78;
+    return 35;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -144,27 +156,21 @@ static NSString *cellIdentifier = @"customCell";
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    //todo: fix - decide if the header is needed - maybe display the name in the header ???
-    
-    if(/* DISABLES CODE */ (YES)){
-        return nil;
-    }
-    
     // 1. The view for the header
     UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 22)];
     
     // 2. Set a custom background color and a border
-    headerView.backgroundColor = [UIColor colorWithWhite:0.5f alpha:1.0f];
-    headerView.layer.borderColor = [UIColor colorWithWhite:0.5 alpha:1.0].CGColor;
-    headerView.layer.borderWidth = 1.0;
+    //headerView.backgroundColor = [UIColor colorWithWhite:0.5f alpha:1.0f];
+    //headerView.layer.borderColor = [UIColor colorWithWhite:0.5 alpha:1.0].CGColor;
+    //headerView.layer.borderWidth = 1.0;
     
     // 3. Add a label
     UILabel* headerLabel = [[UILabel alloc] init];
-    headerLabel.frame = CGRectMake(5, 2, tableView.frame.size.width - 5, 18);
+    headerLabel.frame = CGRectMake(0, 0, tableView.bounds.size.width, headerView.bounds.size.height);
     headerLabel.backgroundColor = [UIColor clearColor];
-    headerLabel.textColor = [UIColor whiteColor];
+    headerLabel.textColor = [UIColor blackColor];
     headerLabel.font = [UIFont boldSystemFontOfSize:16.0];
-    headerLabel.text = @"HEADER";
+    headerLabel.text = @"Player 1";
     headerLabel.textAlignment = NSTextAlignmentCenter;
     
     // 4. Add the label to the header view
@@ -178,24 +184,24 @@ static NSString *cellIdentifier = @"customCell";
 {
     //todo - add conditional to test for the cases in the which the + (add score) will appear
     
-    if(YES){
+   
         // 1. The view
-        UIView* footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 60)];
+        UIView* footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 22)];
         
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected:)];
         singleTap.numberOfTapsRequired = 1;
         [footerView addGestureRecognizer:singleTap];
         
         // 2. Set a custom background color and a border
-        footerView.backgroundColor = [UIColor colorWithWhite:0.5f alpha:1.0f];
-        footerView.layer.borderColor = [UIColor colorWithWhite:0.5 alpha:1.0].CGColor;
-        footerView.layer.borderWidth = 1.0;
+        //footerView.backgroundColor = [UIColor colorWithWhite:0.5f alpha:1.0f];
+        //footerView.layer.borderColor = [UIColor colorWithWhite:0.5 alpha:1.0].CGColor;
+        //footerView.layer.borderWidth = 1.0;
         
         // 3. Add a label
         UILabel* footerLabel = [[UILabel alloc] init];
-        footerLabel.frame = CGRectMake(5, 2, tableView.frame.size.width - 5, 60);
+        footerLabel.frame = CGRectMake(0, 0, tableView.bounds.size.width, footerView.bounds.size.height);
         footerLabel.backgroundColor = [UIColor clearColor];
-        footerLabel.textColor = [UIColor whiteColor];
+        footerLabel.textColor = [UIColor blackColor];
         footerLabel.font = [UIFont boldSystemFontOfSize:16.0];
         footerLabel.text = @"+";
         footerLabel.textAlignment = NSTextAlignmentCenter;
@@ -206,15 +212,12 @@ static NSString *cellIdentifier = @"customCell";
         // 5. Finally return
         return footerView;
 
-    }
-    
-    return nil;
     
 }
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 60;
+    return 22;
 }
 
 
@@ -251,6 +254,7 @@ static NSString *cellIdentifier = @"customCell";
 {
     
     
+    
     //Create the popin view controller
     //UIViewController *popin = [[UIViewController alloc] initWithNibName:@"NibName" bundle:@"Bundle"];
     TurnAmountViewController *popin = [[TurnAmountViewController alloc]init];
@@ -268,19 +272,23 @@ static NSString *cellIdentifier = @"customCell";
     //Customize transition direction if needed
     [popin setPopinTransitionDirection:BKTPopinTransitionDirectionTop];
     
-    //Present popin on the desired controller
-    //Note that if you are using a UINavigationController, the navigation bar will be active if you present
-    // the popin on the visible controller instead of presenting it on the navigation controller
-    [self presentPopinController:popin animated:YES completion:^{
-        NSLog(@"Popin presented !");
+    //CGRect presentationRect = CGRectOffset(CGRectInset(self.view.bounds, 0.0, 100.0), 0.0, 200.0);
+    CGRect presentationRect = self.view.window.bounds;
+    
+    [self.navigationController presentPopinController:popin fromRect:presentationRect animated:YES completion:^{
+        //NSLog(@"Popin presented !");
     }];
+    
+    //log popinView
+    NSLog(@"popin.view.frame: %@", NSStringFromCGRect(popin.view.frame));
+    NSLog(@"popin.view.frame: %@", NSStringFromCGRect(popin.view.frame));
     
 }
 
 - (void)dismissPopup {
     
     [self dismissCurrentPopinControllerAnimated:YES completion:^{
-        NSLog(@"Popin dismissed !");
+       
     }];
     
 }

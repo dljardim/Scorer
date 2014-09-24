@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
+
+
 #import "PlayerScoreCard.h"
 #import "GameScoreViewController.h"
+#import "PlayerListViewController.h"
 
 @interface AppDelegate ()
 
@@ -25,13 +28,15 @@
     //todo: clean up imports
     //PlayerScoreCard *vc = [[PlayerScoreCard alloc]init];
     GameScoreViewController *vc = [[GameScoreViewController alloc]init];
+    //PlayerListViewController *vc = [[PlayerListViewController alloc]init];
     
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:vc];
-    
-    
-    
+
     [self.window setRootViewController:navController];
     [self.window makeKeyAndVisible];
+    
+    //Setup MagivalRecord & CoreData
+    [MagicalRecord setupAutoMigratingCoreDataStack];
 
     return YES;
 }
