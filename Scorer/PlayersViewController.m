@@ -13,13 +13,30 @@
 @interface PlayersViewController ()
 
 @property (nonatomic, strong) NSMutableArray *players;
+@property (weak, nonatomic) IBOutlet UIButton *btnCreatePlayer;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation PlayersViewController
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    DLog();
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Set the tab bar item
+        self.tabBarItem.title = @"Players";
+        
+        UIImage *i = [UIImage imageNamed:@"Contact"];
+        self.tabBarItem.image = i;
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad {
+    DLog();
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"PlayersViewController";
@@ -32,13 +49,25 @@
     
     //fixes the issue of showing empty rows
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    [self setupUI];
+}
+
+-(void)setupUI{
+    self.btnCreatePlayer.titleLabel.font = DEFAULT_FONT;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    DLog();
     [super viewWillAppear:animated];
     
     [self fetchAllPlayers];
     [self.tableView reloadData];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    DLog();
+    [super viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,6 +112,7 @@
     NSLog(@"player.playerName = %@", player.playerName);
     
     cell.textLabel.text = player.playerName;
+    cell.textLabel.font = DEFAULT_FONT;
     
     return cell;
     

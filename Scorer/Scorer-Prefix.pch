@@ -33,5 +33,6 @@
 #import <Foundation/Foundation.h>
 #define MR_SHORTHAND
 #import "CoreData+MagicalRecord.h"
+#import "Constants.h"
 #endif
 

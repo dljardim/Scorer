@@ -14,7 +14,9 @@
 #import "PlayersViewController.h"
 #import "CreatePlayerViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <UITabBarControllerDelegate>
+
+@property (nonatomic) BOOL preventTabSelection;
 
 @end
 
@@ -23,18 +25,27 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    //testing source control dd
+    //testing source control
     [self setWindow:[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]]];
     
     //todo: clean up imports
     //PlayerScoreCard *vc = [[PlayerScoreCard alloc]init];
-    //GameScoreViewController *vc = [[GameScoreViewController alloc]init];
-    PlayersViewController *vc = [[PlayersViewController alloc]init];
+    GameScoreViewController *vcGameScore = [[GameScoreViewController alloc]init];
+    PlayersViewController *vcPlayers = [[PlayersViewController alloc]init];
     //CreatePlayerViewController *vc = [[CreatePlayerViewController alloc]init];
     
-    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:vc];
+    UINavigationController *navControllerGameScore = [[UINavigationController alloc]initWithRootViewController:vcGameScore];
+    UINavigationController *navControllerPlayers = [[UINavigationController alloc]initWithRootViewController:vcPlayers];
+    
+    UITabBarController *tabController = [[UITabBarController alloc]init];
+    tabController.delegate = self;
+    
+    NSMutableArray *vcArray = [[NSMutableArray alloc]init];
+    [vcArray addObject:navControllerGameScore];
+    [vcArray addObject:navControllerPlayers];
+    tabController.viewControllers = vcArray;
 
-    [self.window setRootViewController:navController];
+    [self.window setRootViewController:tabController];
     [self.window makeKeyAndVisible];
     
     //Setup MagivalRecord & CoreData
@@ -66,5 +77,26 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     [MagicalRecord cleanUp];
 }
+
+#pragma mark - UITabBarControllerDelegate
+- (BOOL)tabBarController:(UITabBarController *)aTabBar shouldSelectViewController:(UIViewController *)viewController
+{
+    if(self.preventTabSelection){
+        
+        if ((viewController != [aTabBar.viewControllers objectAtIndex:0]) )
+        {
+            // Disable all but the first tab.
+            return NO;
+        }
+        
+    }
+    
+    
+    
+    return YES;
+}
+
+#pragma mark -
+
 
 @end

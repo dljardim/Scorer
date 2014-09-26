@@ -14,6 +14,8 @@
 @interface CreatePlayerViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *txtName;
+@property (weak, nonatomic) IBOutlet UIButton *btnSave;
+@property (weak, nonatomic) IBOutlet UIButton *btnCancel;
 @property (nonatomic) BOOL isNew;
 
 
@@ -22,6 +24,7 @@
 @implementation CreatePlayerViewController
 
 - (void)viewDidLoad {
+    DLog();
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
@@ -36,7 +39,15 @@
        self.txtName.text = self.player.playerName;
        self.isNew = NO;
    }
+    
+    [self setupUI];
   
+}
+
+-(void)setupUI{
+    self.txtName.font = DEFAULT_FONT;
+    self.btnSave.titleLabel.font = DEFAULT_FONT;
+    self.btnCancel.titleLabel.font = DEFAULT_FONT;
 }
 
 - (void)didReceiveMemoryWarning {

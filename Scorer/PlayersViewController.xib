@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayersViewController">
             <connections>
+                <outlet property="btnCreatePlayer" destination="34p-8h-SRc" id="fcY-aO-wVl"/>
                 <outlet property="tableView" destination="fve-q0-qp6" id="wNN-rR-try"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

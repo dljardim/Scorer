@@ -17,7 +17,7 @@ static NSString *cellIdentifier = @"customCell";
 @interface PlayerScoreCard ()
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, weak) IBOutlet UILabel *lblName;
+
 @property (nonatomic, weak) IBOutlet UILabel *lblScore;
 
 @property (nonatomic) int selectedIndexPathRow;
@@ -30,6 +30,7 @@ static NSString *cellIdentifier = @"customCell";
 @implementation PlayerScoreCard
 
 - (void)viewDidLoad {
+    DLog();
     [super viewDidLoad];
     
     //self.navigationController.navigationBar.translucent = NO;
@@ -43,8 +44,13 @@ static NSString *cellIdentifier = @"customCell";
     
     [self addTableData];
     [self updateTotalScore];
-    [self updateName];
+    [self setupUI];
     
+    
+}
+
+-(void)setupUI{
+    self.lblScore.font = DEFAULT_FONT;
     
 }
 
@@ -67,9 +73,7 @@ static NSString *cellIdentifier = @"customCell";
         //
 }
 
--(void)updateName{
-    self.lblName.text = @"name";
-}
+
 
 -(void)updateTotalScore{
     int sum = 0;
@@ -92,6 +96,8 @@ static NSString *cellIdentifier = @"customCell";
         self.arrayDatasource[self.selectedIndexPathRow] = amount;
     }
     
+    [self checkForWinner];
+    
     [self reload];
 }
 
@@ -99,6 +105,21 @@ static NSString *cellIdentifier = @"customCell";
     [self.tableView reloadData];
     [self updateTotalScore];
     
+}
+
+-(void)checkForWinner{
+    //has user won
+    
+    int sum = 0;
+    
+    for (NSNumber *num in self.arrayDatasource)
+    {
+        sum = sum + [num intValue];
+    }
+    
+    if(sum > 50){
+        [self.delegate testViewController:self];
+    }
 }
 
 #pragma mark - Lazy Load
@@ -139,6 +160,7 @@ static NSString *cellIdentifier = @"customCell";
     PlayerTurnTableViewCell *cell = (PlayerTurnTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
   
     [cell.lblName setText:[NSString stringWithFormat:@"%@",[self.arrayDatasource objectAtIndex:indexPath.row]]];
+    cell.textLabel.font = DEFAULT_FONT;
     
     return cell;
 }
@@ -146,6 +168,7 @@ static NSString *cellIdentifier = @"customCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    DLog();
     self.selectedIndexPathRow = (int)indexPath.row;
     [self presentPopup:indexPath];
 }
@@ -169,7 +192,7 @@ static NSString *cellIdentifier = @"customCell";
     headerLabel.frame = CGRectMake(0, 0, tableView.bounds.size.width, headerView.bounds.size.height);
     headerLabel.backgroundColor = [UIColor clearColor];
     headerLabel.textColor = [UIColor blackColor];
-    headerLabel.font = [UIFont boldSystemFontOfSize:16.0];
+    headerLabel.font = DEFAULT_FONT;
     headerLabel.text = @"Player 1";
     headerLabel.textAlignment = NSTextAlignmentCenter;
     
@@ -202,8 +225,8 @@ static NSString *cellIdentifier = @"customCell";
         footerLabel.frame = CGRectMake(0, 0, tableView.bounds.size.width, footerView.bounds.size.height);
         footerLabel.backgroundColor = [UIColor clearColor];
         footerLabel.textColor = [UIColor blackColor];
-        footerLabel.font = [UIFont boldSystemFontOfSize:16.0];
-        footerLabel.text = @"+";
+    footerLabel.font = DEFAULT_FONT;
+    footerLabel.text = @"+";
         footerLabel.textAlignment = NSTextAlignmentCenter;
         
         // 4. Add the label to the view
@@ -272,8 +295,12 @@ static NSString *cellIdentifier = @"customCell";
     //Customize transition direction if needed
     [popin setPopinTransitionDirection:BKTPopinTransitionDirectionTop];
     
-    //CGRect presentationRect = CGRectOffset(CGRectInset(self.view.bounds, 0.0, 100.0), 0.0, 200.0);
+    
     CGRect presentationRect = self.view.window.bounds;
+    CGFloat h = presentationRect.size.height - self.tabBarController.view.bounds.size.height;
+    CGFloat w = presentationRect.size.width - self.tabBarController.view.bounds.size.width;
+    presentationRect.size = CGSizeMake(w, h);
+
     
     [self.navigationController presentPopinController:popin fromRect:presentationRect animated:YES completion:^{
         //NSLog(@"Popin presented !");

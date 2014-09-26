@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreatePlayerViewController">
             <connections>
+                <outlet property="btnCancel" destination="Ns5-Be-n0r" id="41t-Ds-5dR"/>
+                <outlet property="btnSave" destination="Msr-PB-aRE" id="5CP-oU-xUu"/>
                 <outlet property="txtName" destination="Akl-SD-CWT" id="bpx-Xq-PXa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

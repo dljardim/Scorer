@@ -12,10 +12,11 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
+    DLog();
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
 
     if (self) {
-        
+        self.lblName.font = DEFAULT_FONT;
     }
     
     return self;

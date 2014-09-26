@@ -10,6 +10,16 @@
 #import "PlayerTurnTableViewCell.h"
 #import "TurnAmountViewController.h"
 
+@class PlayerScoreCard;
+
+@protocol PlayerScoreCardDelegate <NSObject>
+
+-(void)testViewController:(PlayerScoreCard *)viewController;
+
+@end
+
 @interface PlayerScoreCard : UIViewController <TurnAmountViewControllerDelegate>
+
+@property (nonatomic, weak) id <PlayerScoreCardDelegate> delegate;
 
 @end

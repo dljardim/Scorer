@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TurnAmountViewController">
@@ -17,15 +18,18 @@
             <rect key="frame" x="0.0" y="0.0" width="300" height="125"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1qK-y3-wHT">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1qK-y3-wHT">
                     <rect key="frame" x="52" y="34" width="205" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="WNK-PT-2i4"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="qJz-Mb-aDR"/>
                     </connections>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dl6-U1-qBe">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dl6-U1-qBe">
                     <rect key="frame" x="52" y="72" width="205" height="45"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="Done">
@@ -35,7 +39,7 @@
                         <action selector="dismiss:" destination="-1" eventType="touchUpInside" id="YnE-Du-0XL"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwU-ew-AqC">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwU-ew-AqC">
                     <rect key="frame" x="118" y="8" width="73" height="18"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -43,6 +47,17 @@
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="dl6-U1-qBe" firstAttribute="bottom" secondItem="24a-zS-chr" secondAttribute="bottomMargin" id="832-Rs-GFO"/>
+                <constraint firstItem="1qK-y3-wHT" firstAttribute="top" secondItem="pwU-ew-AqC" secondAttribute="bottom" constant="8" symbolic="YES" id="DnO-RD-cEY"/>
+                <constraint firstItem="1qK-y3-wHT" firstAttribute="leading" secondItem="24a-zS-chr" secondAttribute="leading" constant="52" id="EEh-56-2Uv"/>
+                <constraint firstItem="1qK-y3-wHT" firstAttribute="leading" secondItem="dl6-U1-qBe" secondAttribute="leading" id="HUg-WR-Jl7"/>
+                <constraint firstAttribute="trailing" secondItem="1qK-y3-wHT" secondAttribute="trailing" constant="43" id="PHV-4m-ea2"/>
+                <constraint firstItem="pwU-ew-AqC" firstAttribute="centerX" secondItem="1qK-y3-wHT" secondAttribute="centerX" id="W7j-nc-1Fw"/>
+                <constraint firstItem="dl6-U1-qBe" firstAttribute="top" secondItem="1qK-y3-wHT" secondAttribute="bottom" constant="8" symbolic="YES" id="WN3-pN-9n3"/>
+                <constraint firstItem="pwU-ew-AqC" firstAttribute="top" secondItem="24a-zS-chr" secondAttribute="topMargin" id="gV5-1G-YBM"/>
+                <constraint firstItem="dl6-U1-qBe" firstAttribute="trailing" secondItem="1qK-y3-wHT" secondAttribute="trailing" id="qfE-zf-psU"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-218" y="-202.5"/>
         </view>

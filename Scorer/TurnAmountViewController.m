@@ -20,6 +20,7 @@
 @implementation TurnAmountViewController
 
 - (void)viewDidLoad {
+    DLog();
     [super viewDidLoad];
     
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]){
@@ -30,8 +31,17 @@
     [self.txtAmount becomeFirstResponder];
     
     self.txtAmount.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    
+    
+    [self setFonts];
 
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)setFonts{
+    self.lblLabel.font = DEFAULT_FONT;
+    self.txtAmount.font = DEFAULT_FONT;
+    self.btnDone.titleLabel.font = DEFAULT_FONT;
 }
 
 - (void)didReceiveMemoryWarning {
