@@ -13,6 +13,7 @@
 #import "GameScoreViewController.h"
 #import "PlayersViewController.h"
 #import "CreatePlayerViewController.h"
+#import "SelectGamePlayersViewController.h"
 
 @interface AppDelegate () <UITabBarControllerDelegate>
 
@@ -30,18 +31,19 @@
     
     //todo: clean up imports
     //PlayerScoreCard *vc = [[PlayerScoreCard alloc]init];
-    GameScoreViewController *vcGameScore = [[GameScoreViewController alloc]init];
+    ///GameScoreViewController *vcGameScore = [[GameScoreViewController alloc]init];
+    SelectGamePlayersViewController *vcSelectGamePlayers = [[SelectGamePlayersViewController alloc]init];
     PlayersViewController *vcPlayers = [[PlayersViewController alloc]init];
     //CreatePlayerViewController *vc = [[CreatePlayerViewController alloc]init];
     
-    UINavigationController *navControllerGameScore = [[UINavigationController alloc]initWithRootViewController:vcGameScore];
+    UINavigationController *navControllerSelectGamePlayers = [[UINavigationController alloc]initWithRootViewController:vcSelectGamePlayers];
     UINavigationController *navControllerPlayers = [[UINavigationController alloc]initWithRootViewController:vcPlayers];
     
     UITabBarController *tabController = [[UITabBarController alloc]init];
     tabController.delegate = self;
     
     NSMutableArray *vcArray = [[NSMutableArray alloc]init];
-    [vcArray addObject:navControllerGameScore];
+    [vcArray addObject:navControllerSelectGamePlayers];
     [vcArray addObject:navControllerPlayers];
     tabController.viewControllers = vcArray;
 

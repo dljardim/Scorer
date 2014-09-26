@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Game;
 
 @interface GameScoreViewController : UIViewController
 
+//selectedPlayers is passed from the last view
+@property (nonatomic, strong) NSMutableArray *selectedPlayers;
 
+@property (nonatomic, strong) Game *game;
 
 @end

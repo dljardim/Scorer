@@ -9,12 +9,20 @@
 #import "GameScoreViewController.h"
 #import "PlayerScoreCard.h"
 
+#import "Player.h"
+#import "Game.h"
+#import "GamePlayer.h"
+#import "Turn.h"
+
 @interface GameScoreViewController () <UIScrollViewDelegate, PlayerScoreCardDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
-@property (nonatomic, strong) NSMutableArray *playerScoreCardArray;
+@property (nonatomic, strong) NSMutableArray *playerScoreCardViewControllerArray;
+
+//selectedPlayers is passed from the last view
+//.h @property (nonatomic, strong) NSMutableArray *selectedPlayers;
 
 
 @end
@@ -24,11 +32,25 @@
     BOOL _isLoaded;
 }
 
--(NSMutableArray *)playerScoreCardArray{
-    if(_playerScoreCardArray == nil){
-        _playerScoreCardArray = [[NSMutableArray alloc]init];
+-(NSMutableArray *)playerScoreCardViewControllerArray{
+    if(_playerScoreCardViewControllerArray == nil){
+        _playerScoreCardViewControllerArray = [[NSMutableArray alloc]init];
+        
+        //[self populateScoreCardArray];
+        
+        
+        
+        
     }
-    return _playerScoreCardArray;
+    return _playerScoreCardViewControllerArray;
+}
+
+//todo - send them back to selectgameplayersviewcontroller if no one is selected
+-(NSMutableArray *)selectedPlayers{
+    if(_selectedPlayers == nil){
+        _selectedPlayers = [[NSMutableArray alloc]init];
+    }
+    return _selectedPlayers;
 }
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -54,6 +76,26 @@
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]){
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
+    
+    //game setup
+    //if there is no player - create a new game
+    if (!self.game) {
+        self.game = [Game MR_createEntity];
+    }
+    
+    //add playergames to the game
+    for (Player *player in self.selectedPlayers) {
+        
+        GamePlayer *gamePlayer = [GamePlayer MR_createEntity];
+        PlayerScoreCard *playerSC = [[PlayerScoreCard alloc]init];
+        
+        //how to associate players and gameplayers
+        //gamePlayer.player = player;
+        
+        [self.game addGamePlayersObject:gamePlayer];
+        
+        [self.playerScoreCardViewControllerArray addObject:playerSC];
+    }
 }
 
 -(void)testViewController:(PlayerScoreCard *)viewController{
@@ -75,7 +117,7 @@
     
     //add to uiscrollview
    
-        
+    
         
         PlayerScoreCard *playerSCView = [[PlayerScoreCard alloc]init];
         playerSCView.delegate = self;
@@ -86,10 +128,10 @@
         PlayerScoreCard *playerSCView3 = [[PlayerScoreCard alloc]init];
         playerSCView3.delegate = self;
         
-        [self.playerScoreCardArray addObject:playerSCView];
-        [self.playerScoreCardArray addObject:playerSCView2];
-        [self.playerScoreCardArray addObject:playerSCView3];
-        
+//        [self.playerScoreCardArray addObject:playerSCView];
+//        [self.playerScoreCardArray addObject:playerSCView2];
+//        [self.playerScoreCardArray addObject:playerSCView3];
+    
         playerSCView2.view.frame = CGRectMake(playerSCView.view.frame.origin.x +  playerSCView.view.bounds.size.width, 0, playerSCView2.view.bounds.size.width, playerSCView2.view.bounds.size.height);
         
         playerSCView3.view.frame = CGRectMake(playerSCView.view.frame.origin.x +  playerSCView.view.bounds.size.width * 2, 0, playerSCView2.view.bounds.size.width, playerSCView2.view.bounds.size.height);

@@ -1,23 +1,41 @@
 //
-//  PlayersViewController.m
+//  SelectGamePlayersViewController.m
 //  Scorer
 //
-//  Created by Damian Jardim on 9/25/14.
+//  Created by Damian Jardim on 9/26/14.
 //  Copyright (c) 2014 Damian Jardim. All rights reserved.
 //
 
-#import "PlayersViewController.h"
+#import "SelectGamePlayersViewController.h"
+#import "GameScoreViewController.h"
+
 #import "Player.h"
-#import "CreatePlayerViewController.h"
+#import "Game.h"
+#import "GamePlayer.h"
+#import "Turn.h"
 
-@interface PlayersViewController ()
-
-@property (nonatomic, strong) NSMutableArray *players;
+@interface SelectGamePlayersViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *players;
+@property (nonatomic, strong) NSMutableArray *selectedPlayers;
 
 @end
 
-@implementation PlayersViewController
+@implementation SelectGamePlayersViewController
+
+-(NSMutableArray *)players{
+    if (_players == nil){
+        _players = [[NSMutableArray alloc]init];
+    }
+    return _players;
+}
+
+-(NSMutableArray *)selectedPlayers{
+    if (_selectedPlayers == nil){
+        _selectedPlayers = [[NSMutableArray alloc]init];
+    }
+    return _selectedPlayers;
+}
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,7 +56,7 @@
     DLog();
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"Players";
+    self.title = @"Select Players";
     
     //deals with navigationbar(44) and statusbar(20)
     //self.navigationController.navigationBar.translucent = NO;
@@ -57,23 +75,23 @@
     [self setupNavigationBar];
 }
 
+
+
 -(void)setupNavigationBar{
     // add our custom image button as the nav bar's custom right view
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Add"]
-                                                                  style:UIBarButtonItemStylePlain target:self action:@selector(addButttonTap:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Next"]
+                                                                  style:UIBarButtonItemStylePlain target:self action:@selector(rightButttonTap:)];
+    self.navigationItem.rightBarButtonItem = rightBtn;
 }
 
--(void)addButttonTap:(id)sender{
-    CreatePlayerViewController *vc = [[CreatePlayerViewController alloc]init];
-    [self.navigationController presentViewController:vc animated:YES completion:^{
-        
-    }];
+-(void)rightButttonTap:(id)sender{
+
+    //use the selectedArray to setup GameScoreViewController
+    GameScoreViewController *vcGameScore = [[GameScoreViewController alloc]init];
+    vcGameScore.selectedPlayers = self.selectedPlayers;
+    //present vc
+    [self.navigationController pushViewController:vcGameScore animated:YES];
 }
-
-
-
-
 
 - (void)viewWillAppear:(BOOL)animated {
     DLog();
@@ -100,6 +118,7 @@
     self.players = [[Player MR_findAll]mutableCopy];
 }
 
+
 #pragma mark - tableview
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -122,7 +141,7 @@
     // Configure the cell...
     Player *player = self.players[indexPath.row];
     
-    //NSLog(@"player.playerName = %@", player.playerName);
+
     
     cell.textLabel.text = player.playerName;
     cell.textLabel.font = DEFAULT_FONT;
@@ -132,34 +151,41 @@
 }
 
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        Player *player = [self.players objectAtIndex:indexPath.row];
-        [player MR_deleteEntity];
-        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-        
-        [self.players removeObjectAtIndex:indexPath.row];
-        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationTop];
-    }
-}
+//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return YES;
+//}
+//
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        Player *player = [self.players objectAtIndex:indexPath.row];
+//        [player MR_deleteEntity];
+//        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+//        
+//        [self.players removeObjectAtIndex:indexPath.row];
+//        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationTop];
+//    }
+//}
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     Player *player = [self.players objectAtIndex:indexPath.row];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+
     
-    CreatePlayerViewController *vc = [[CreatePlayerViewController alloc]init];
-    vc.player = player;
-    
-    [self.navigationController presentViewController:vc animated:YES completion:^{
-        
-    }];
-    
+    if([self.selectedPlayers containsObject:player]){
+        //remove it from selected
+        [self.selectedPlayers removeObject:player];
+        //uncheck
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+    }else{
+        //add it from selected
+        [self.selectedPlayers addObject:player];
+        //check
+        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+    }
 }
 
 #pragma mark -
