@@ -11,7 +11,8 @@
 
 #import "PlayerScoreCard.h"
 #import "GameScoreViewController.h"
-#import "PlayerListViewController.h"
+#import "PlayersViewController.h"
+#import "CreatePlayerViewController.h"
 
 @interface AppDelegate ()
 
@@ -27,8 +28,9 @@
     
     //todo: clean up imports
     //PlayerScoreCard *vc = [[PlayerScoreCard alloc]init];
-    GameScoreViewController *vc = [[GameScoreViewController alloc]init];
-    //PlayerListViewController *vc = [[PlayerListViewController alloc]init];
+    //GameScoreViewController *vc = [[GameScoreViewController alloc]init];
+    PlayersViewController *vc = [[PlayersViewController alloc]init];
+    //CreatePlayerViewController *vc = [[CreatePlayerViewController alloc]init];
     
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:vc];
 
@@ -36,7 +38,7 @@
     [self.window makeKeyAndVisible];
     
     //Setup MagivalRecord & CoreData
-    [MagicalRecord setupAutoMigratingCoreDataStack];
+   [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"Scorer.sqlite"];
 
     return YES;
 }
@@ -49,6 +51,7 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -61,6 +64,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [MagicalRecord cleanUp];
 }
 
 @end

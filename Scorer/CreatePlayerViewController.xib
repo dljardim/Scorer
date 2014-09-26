@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreatePlayerViewController">
+            <connections>
+                <outlet property="txtName" destination="Akl-SD-CWT" id="bpx-Xq-PXa"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Akl-SD-CWT">
+                    <rect key="frame" x="8" y="28" width="304" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="mXa-f1-Jnf"/>
+                    </connections>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Msr-PB-aRE">
+                    <rect key="frame" x="8" y="66" width="304" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="ASX-aR-XfE"/>
+                    </constraints>
+                    <state key="normal" title="Save">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="saveClick:" destination="-1" eventType="touchUpInside" id="ubp-PP-BaM"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ns5-Be-n0r">
+                    <rect key="frame" x="8" y="124" width="304" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="TVq-Ji-UTi"/>
+                    </constraints>
+                    <state key="normal" title="Cancel">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelClick:" destination="-1" eventType="touchUpInside" id="mbt-D7-4Dl"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Ns5-Be-n0r" firstAttribute="trailing" secondItem="Msr-PB-aRE" secondAttribute="trailing" id="27L-Od-7td"/>
+                <constraint firstItem="Ns5-Be-n0r" firstAttribute="top" secondItem="Msr-PB-aRE" secondAttribute="bottom" constant="8" symbolic="YES" id="6Os-UI-TJo"/>
+                <constraint firstItem="Msr-PB-aRE" firstAttribute="top" secondItem="Akl-SD-CWT" secondAttribute="bottom" constant="8" symbolic="YES" id="6eR-tM-8UI"/>
+                <constraint firstItem="Akl-SD-CWT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="28" id="DoT-cK-kqf"/>
+                <constraint firstItem="Msr-PB-aRE" firstAttribute="trailing" secondItem="Akl-SD-CWT" secondAttribute="trailing" id="OaD-EH-xb9"/>
+                <constraint firstItem="Akl-SD-CWT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="edd-KY-IZL"/>
+                <constraint firstAttribute="trailing" secondItem="Akl-SD-CWT" secondAttribute="trailing" constant="8" id="mZI-Qh-qcA"/>
+                <constraint firstItem="Msr-PB-aRE" firstAttribute="leading" secondItem="Akl-SD-CWT" secondAttribute="leading" id="qfw-4a-aot"/>
+                <constraint firstItem="Ns5-Be-n0r" firstAttribute="leading" secondItem="Msr-PB-aRE" secondAttribute="leading" id="wL4-vL-AY3"/>
+            </constraints>
+            <point key="canvasLocation" x="411" y="433"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

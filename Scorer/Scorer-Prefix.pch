@@ -14,7 +14,24 @@
 
 #endif
 
+// DLog will output like NSLog only when the DEBUG variable is set
+
+#ifdef DEBUG
+#   define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#   define DLog(...)
+#endif
+
+
 //1. Import MagicalRecord Sources
 #define MR_SHORTHAND
 #define MR_ENABLE_ACTIVE_RECORD_LOGGING 0
 #import "CoreData+MagicalRecord.h"
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#define MR_SHORTHAND
+#import "CoreData+MagicalRecord.h"
+#endif
+
