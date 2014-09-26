@@ -18,7 +18,6 @@
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="byA-cQ-Vqc">
                     <rect key="frame" x="8" y="8" width="84" height="305"/>
-                    <color key="backgroundColor" red="0.31372549020000001" green="0.62745098040000002" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="5pL-kC-JaA"/>
                         <outlet property="delegate" destination="-1" id="ve5-Sp-gEg"/>
@@ -46,7 +45,6 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.98823529409999999" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="FZX-Sv-qfW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="4lu-NP-clz"/>
                 <constraint firstAttribute="bottom" secondItem="FZX-Sv-qfW" secondAttribute="bottom" constant="8" id="UmN-4f-VUf"/>

@@ -13,12 +13,23 @@
 
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
 @property (nonatomic, strong) NSMutableArray *playerScoreCardArray;
 
 
 @end
 
 @implementation GameScoreViewController
+{
+    BOOL _isLoaded;
+}
+
+-(NSMutableArray *)playerScoreCardArray{
+    if(_playerScoreCardArray == nil){
+        _playerScoreCardArray = [[NSMutableArray alloc]init];
+    }
+    return _playerScoreCardArray;
+}
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,43 +64,56 @@
 -(void)viewDidAppear:(BOOL)animated{
     DLog();
     [super viewDidAppear:animated];
+
+    //on first run -
+    DLog(@"_isLoaded: %@", [NSString stringWithFormat:@"%@", _isLoaded ? @"YES" : @"NO"]);
+    if (_isLoaded) {
+        return;
+    } else {
+        _isLoaded = TRUE;
+    }
     
     //add to uiscrollview
-    if(self.playerScoreCardArray == nil){
+   
+        
+        
         PlayerScoreCard *playerSCView = [[PlayerScoreCard alloc]init];
         playerSCView.delegate = self;
         
         PlayerScoreCard *playerSCView2 = [[PlayerScoreCard alloc]init];
         playerSCView2.delegate = self;
         
+        PlayerScoreCard *playerSCView3 = [[PlayerScoreCard alloc]init];
+        playerSCView3.delegate = self;
+        
+        [self.playerScoreCardArray addObject:playerSCView];
+        [self.playerScoreCardArray addObject:playerSCView2];
+        [self.playerScoreCardArray addObject:playerSCView3];
+        
         playerSCView2.view.frame = CGRectMake(playerSCView.view.frame.origin.x +  playerSCView.view.bounds.size.width, 0, playerSCView2.view.bounds.size.width, playerSCView2.view.bounds.size.height);
+        
+        playerSCView3.view.frame = CGRectMake(playerSCView.view.frame.origin.x +  playerSCView.view.bounds.size.width * 2, 0, playerSCView2.view.bounds.size.width, playerSCView2.view.bounds.size.height);
         
         //UIView *v1 = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.width)];
         //v1.backgroundColor = [UIColor blueColor];
         
-        self.scrollView.contentSize = CGSizeMake(playerSCView.view.bounds.size.width * 2, playerSCView.view.bounds.size.height);
+        self.scrollView.contentSize = CGSizeMake(playerSCView.view.bounds.size.width * 3, playerSCView.view.bounds.size.height);
         
         //NSLog(@"width = %f, height = %f", self.scrollView.contentSize.width, self.scrollView.contentSize.height);
         
         [self addChildViewController:playerSCView];
         [playerSCView didMoveToParentViewController:self];
+        [self.scrollView addSubview:playerSCView.view];
         
         [self addChildViewController:playerSCView2];
         [playerSCView2 didMoveToParentViewController:self];
-        
-        
-        
-        [self.scrollView addSubview:playerSCView.view];
         [self.scrollView addSubview:playerSCView2.view];
         
-        //NSLog(@"playerSCView.view: %@", playerSCView.view);
-        //NSLog(@"playerSCView2.view: %@", playerSCView2.view);
-    }
-    
-    
+        [self addChildViewController:playerSCView3];
+        [playerSCView3 didMoveToParentViewController:self];
+        [self.scrollView addSubview:playerSCView3.view];
     
 }
-
 
 
 - (void)didReceiveMemoryWarning {

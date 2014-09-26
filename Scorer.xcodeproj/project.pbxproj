@@ -19,9 +19,6 @@
 		38CAD46F19D4DB1D000F4F26 /* CreatePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CAD46D19D4DB1D000F4F26 /* CreatePlayerViewController.m */; };
 		38CAD47019D4DB1D000F4F26 /* CreatePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38CAD46E19D4DB1D000F4F26 /* CreatePlayerViewController.xib */; };
 		38CAD47C19D4E25C000F4F26 /* Scorer.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 38CAD47B19D4E25C000F4F26 /* Scorer.xcdatamodel */; };
-		38CAD47F19D4E28F000F4F26 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CAD47E19D4E28F000F4F26 /* Game.m */; };
-		38CAD48219D4E290000F4F26 /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CAD48119D4E290000F4F26 /* Turn.m */; };
-		38CAD48519D4E290000F4F26 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CAD48419D4E290000F4F26 /* Player.m */; };
 		38CAD4C219D4E89F000F4F26 /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CAD48A19D4E89F000F4F26 /* MagicalImportFunctions.m */; };
 		38CAD4C319D4E89F000F4F26 /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CAD48C19D4E89F000F4F26 /* NSAttributeDescription+MagicalDataImport.m */; };
 		38CAD4C419D4E89F000F4F26 /* NSEntityDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CAD48E19D4E89F000F4F26 /* NSEntityDescription+MagicalDataImport.m */; };
@@ -51,6 +48,10 @@
 		38D71C1A19D4EDC800D880D1 /* PlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D71C1819D4EDC800D880D1 /* PlayersViewController.m */; };
 		38D71C1B19D4EDC800D880D1 /* PlayersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38D71C1919D4EDC800D880D1 /* PlayersViewController.xib */; };
 		38D71C5E19D54F0400D880D1 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D71C5D19D54F0400D880D1 /* Constants.m */; };
+		38D71CA719D5AF9A00D880D1 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D71CA619D5AF9A00D880D1 /* Player.m */; };
+		38D71CAA19D5AF9B00D880D1 /* GamePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D71CA919D5AF9B00D880D1 /* GamePlayer.m */; };
+		38D71CAD19D5AF9B00D880D1 /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D71CAC19D5AF9B00D880D1 /* Turn.m */; };
+		38D71CB019D5AF9B00D880D1 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D71CAF19D5AF9B00D880D1 /* Game.m */; };
 		38ED356B19CD498000D6FEBF /* TurnAmountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38ED356919CD498000D6FEBF /* TurnAmountViewController.m */; };
 		38ED356C19CD498000D6FEBF /* TurnAmountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38ED356A19CD498000D6FEBF /* TurnAmountViewController.xib */; };
 		38ED357419CD5E6800D6FEBF /* UIViewController+MaryPopin.m in Sources */ = {isa = PBXBuildFile; fileRef = 38ED357319CD5E6800D6FEBF /* UIViewController+MaryPopin.m */; };
@@ -90,12 +91,6 @@
 		38CAD46D19D4DB1D000F4F26 /* CreatePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatePlayerViewController.m; sourceTree = "<group>"; };
 		38CAD46E19D4DB1D000F4F26 /* CreatePlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreatePlayerViewController.xib; sourceTree = "<group>"; };
 		38CAD47B19D4E25C000F4F26 /* Scorer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Scorer.xcdatamodel; sourceTree = "<group>"; };
-		38CAD47D19D4E28F000F4F26 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
-		38CAD47E19D4E28F000F4F26 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
-		38CAD48019D4E290000F4F26 /* Turn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turn.h; sourceTree = "<group>"; };
-		38CAD48119D4E290000F4F26 /* Turn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turn.m; sourceTree = "<group>"; };
-		38CAD48319D4E290000F4F26 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
-		38CAD48419D4E290000F4F26 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		38CAD48919D4E89F000F4F26 /* MagicalImportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalImportFunctions.h; sourceTree = "<group>"; };
 		38CAD48A19D4E89F000F4F26 /* MagicalImportFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalImportFunctions.m; sourceTree = "<group>"; };
 		38CAD48B19D4E89F000F4F26 /* NSAttributeDescription+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributeDescription+MagicalDataImport.h"; sourceTree = "<group>"; };
@@ -155,6 +150,14 @@
 		38D71C1919D4EDC800D880D1 /* PlayersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayersViewController.xib; sourceTree = "<group>"; };
 		38D71C5C19D54F0400D880D1 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		38D71C5D19D54F0400D880D1 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		38D71CA519D5AF9A00D880D1 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		38D71CA619D5AF9A00D880D1 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		38D71CA819D5AF9B00D880D1 /* GamePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayer.h; sourceTree = "<group>"; };
+		38D71CA919D5AF9B00D880D1 /* GamePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePlayer.m; sourceTree = "<group>"; };
+		38D71CAB19D5AF9B00D880D1 /* Turn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turn.h; sourceTree = "<group>"; };
+		38D71CAC19D5AF9B00D880D1 /* Turn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turn.m; sourceTree = "<group>"; };
+		38D71CAE19D5AF9B00D880D1 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		38D71CAF19D5AF9B00D880D1 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		38ED356819CD498000D6FEBF /* TurnAmountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TurnAmountViewController.h; sourceTree = "<group>"; };
 		38ED356919CD498000D6FEBF /* TurnAmountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TurnAmountViewController.m; sourceTree = "<group>"; };
 		38ED356A19CD498000D6FEBF /* TurnAmountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TurnAmountViewController.xib; sourceTree = "<group>"; };
@@ -267,12 +270,14 @@
 			isa = PBXGroup;
 			children = (
 				38CAD47B19D4E25C000F4F26 /* Scorer.xcdatamodel */,
-				38CAD48319D4E290000F4F26 /* Player.h */,
-				38CAD48419D4E290000F4F26 /* Player.m */,
-				38CAD48019D4E290000F4F26 /* Turn.h */,
-				38CAD48119D4E290000F4F26 /* Turn.m */,
-				38CAD47D19D4E28F000F4F26 /* Game.h */,
-				38CAD47E19D4E28F000F4F26 /* Game.m */,
+				38D71CAE19D5AF9B00D880D1 /* Game.h */,
+				38D71CAF19D5AF9B00D880D1 /* Game.m */,
+				38D71CAB19D5AF9B00D880D1 /* Turn.h */,
+				38D71CAC19D5AF9B00D880D1 /* Turn.m */,
+				38D71CA819D5AF9B00D880D1 /* GamePlayer.h */,
+				38D71CA919D5AF9B00D880D1 /* GamePlayer.m */,
+				38D71CA519D5AF9A00D880D1 /* Player.h */,
+				38D71CA619D5AF9A00D880D1 /* Player.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -497,17 +502,16 @@
 				38CAD4D819D4E89F000F4F26 /* MagicalRecord+Options.m in Sources */,
 				38CAD4D419D4E89F000F4F26 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				38CAD4C419D4E89F000F4F26 /* NSEntityDescription+MagicalDataImport.m in Sources */,
+				38D71CAA19D5AF9B00D880D1 /* GamePlayer.m in Sources */,
 				3803AEB319CD068A0088623B /* PlayerTurnTableViewCell.m in Sources */,
-				38CAD47F19D4E28F000F4F26 /* Game.m in Sources */,
 				38CAD4C819D4E89F000F4F26 /* NSString+MagicalDataImport.m in Sources */,
 				38CAD4C619D4E89F000F4F26 /* NSObject+MagicalDataImport.m in Sources */,
 				38CAD4D919D4E89F000F4F26 /* MagicalRecord+Setup.m in Sources */,
+				38D71CAD19D5AF9B00D880D1 /* Turn.m in Sources */,
 				38CAD4CB19D4E89F000F4F26 /* NSManagedObject+MagicalFinders.m in Sources */,
 				3803AE8319CCEF730088623B /* main.m in Sources */,
 				38CAD4D319D4E89F000F4F26 /* NSPersistentStore+MagicalRecord.m in Sources */,
 				38CAD4DB19D4E89F000F4F26 /* MagicalRecord.m in Sources */,
-				38CAD48519D4E290000F4F26 /* Player.m in Sources */,
-				38CAD48219D4E290000F4F26 /* Turn.m in Sources */,
 				38CAD4CD19D4E89F000F4F26 /* NSManagedObject+MagicalRequests.m in Sources */,
 				38ED357419CD5E6800D6FEBF /* UIViewController+MaryPopin.m in Sources */,
 				38CAD4D119D4E89F000F4F26 /* NSManagedObjectContext+MagicalThreading.m in Sources */,
@@ -520,9 +524,11 @@
 				38CAD4CC19D4E89F000F4F26 /* NSManagedObject+MagicalRecord.m in Sources */,
 				38CAD4D019D4E89F000F4F26 /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				38CAD4C519D4E89F000F4F26 /* NSNumber+MagicalDataImport.m in Sources */,
+				38D71CB019D5AF9B00D880D1 /* Game.m in Sources */,
 				38CAD4CE19D4E89F000F4F26 /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				38CAD4D719D4E89F000F4F26 /* MagicalRecord+iCloud.m in Sources */,
 				3803AEA919CCFEDD0088623B /* PlayerScoreCard.m in Sources */,
+				38D71CA719D5AF9A00D880D1 /* Player.m in Sources */,
 				38CAD4C919D4E89F000F4F26 /* NSManagedObject+MagicalAggregation.m in Sources */,
 				38CAD4C219D4E89F000F4F26 /* MagicalImportFunctions.m in Sources */,
 				38D71C1A19D4EDC800D880D1 /* PlayersViewController.m in Sources */,

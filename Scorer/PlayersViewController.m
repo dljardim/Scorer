@@ -39,10 +39,14 @@
     DLog();
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"PlayersViewController";
+    self.title = @"Players";
     
     //deals with navigationbar(44) and statusbar(20)
-    self.navigationController.navigationBar.translucent = NO;
+    //self.navigationController.navigationBar.translucent = NO;
+    
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]){
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
     
     
     [self fetchAllPlayers];
@@ -51,7 +55,24 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self setupUI];
+    [self setupNavigationBar];
 }
+
+-(void)setupNavigationBar{
+    // add our custom image button as the nav bar's custom right view
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Add"]
+                                                                  style:UIBarButtonItemStylePlain target:self action:@selector(addButttonTap:)];
+    self.navigationItem.rightBarButtonItem = addButton;
+}
+
+-(void)addButttonTap:(id)sender{
+    CreatePlayerViewController *vc = [[CreatePlayerViewController alloc]init];
+    [self.navigationController presentViewController:vc animated:YES completion:^{
+        
+    }];
+}
+
+
 
 -(void)setupUI{
     self.btnCreatePlayer.titleLabel.font = DEFAULT_FONT;
@@ -74,12 +95,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)btnCreatePlayerTap:(id)sender {
-    CreatePlayerViewController *vc = [[CreatePlayerViewController alloc]init];
-    [self.navigationController presentViewController:vc animated:YES completion:^{
-        
-    }];
-}
+
 
 - (void)fetchAllPlayers {
     

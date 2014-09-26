@@ -3,20 +3,28 @@
     <entity name="Game" representedClassName="Game" syncable="YES">
         <attribute name="scoreEnd" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="scoreStart" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="turns" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Turn" inverseName="game" inverseEntity="Turn" syncable="YES"/>
+        <attribute name="winnerName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="gamePlayers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GamePlayer" inverseName="game" inverseEntity="GamePlayer" syncable="YES"/>
+    </entity>
+    <entity name="GamePlayer" representedClassName="GamePlayer" syncable="YES">
+        <relationship name="game" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="gamePlayers" inverseEntity="Game" syncable="YES"/>
+        <relationship name="player" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="gamePlayer" inverseEntity="Player" syncable="YES"/>
+        <relationship name="turns" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Turn" inverseName="gamePlayer" inverseEntity="Turn" syncable="YES"/>
     </entity>
     <entity name="Player" representedClassName="Player" syncable="YES">
+        <attribute name="losses" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="playerName" attributeType="String" syncable="YES"/>
-        <relationship name="turns" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Turn" inverseName="player" inverseEntity="Turn" syncable="YES"/>
+        <attribute name="wins" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="gamePlayer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GamePlayer" inverseName="player" inverseEntity="GamePlayer" syncable="YES"/>
     </entity>
     <entity name="Turn" representedClassName="Turn" syncable="YES">
         <attribute name="amount" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="game" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="turns" inverseEntity="Game" syncable="YES"/>
-        <relationship name="player" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="turns" inverseEntity="Player" syncable="YES"/>
+        <relationship name="gamePlayer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GamePlayer" inverseName="turns" inverseEntity="GamePlayer" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Game" positionX="-2925" positionY="-2025" width="128" height="88"/>
-        <element name="Player" positionX="-3539" positionY="-1873" width="128" height="75"/>
-        <element name="Turn" positionX="-3017" positionY="-1669" width="128" height="90"/>
+        <element name="Game" positionX="-2925" positionY="-2025" width="128" height="103"/>
+        <element name="Player" positionX="-3539" positionY="-1873" width="128" height="103"/>
+        <element name="Turn" positionX="-3017" positionY="-1669" width="128" height="73"/>
+        <element name="GamePlayer" positionX="-3213" positionY="-1800" width="128" height="88"/>
     </elements>
 </model>
